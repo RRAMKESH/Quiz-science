@@ -1,0 +1,92 @@
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link link href='https://fonts.googleapis.com/css?family=Anek Devanagari' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</style>
+<body class="flex flex-col items-center justify-center min-h-screen">
+<div id="loaderOverlay" class="fixed inset-0 bg-white flex flex-col items-center justify-center z-[9999]">
+  <div class="w-20 h-20 rounded-full bg-red-500 opacity-70 animate-pulse-ring mb-6"></div>
+  <div class="text-red-800 text-lg font-semibold animate-pulse">Loading…</div>
+</div>
+<div id="consentScreen49" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden px-2">
+  <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md text-center text-purple-900 mx-2"><div style="display: flex; justify-content: center; align-items: center; height: 30vh;">
+  <img width="60%" src="https://m2.getsitecontrol.com/gallery/stickers/scenes-1/50-95d872ae5cd17bfa2e83270e76974ebd.svg" />
+</div><br>
+    <h2 class="text-2xl text-red-900 font-bold mb-4">?? Test ???? ???? ?? ???? ???????</h2>
+    <p style="line-height:1.8;" class="text-sm mb-4">
+      ?? Test ??? Science ?? ???? ??? <strong>??? 50 ????</strong> ?????? ???????? ???? ?? ????? ???? ?? ??? ???? ??? <strong>30 ?????</strong> ?????? ????? ?? complete ???? ?? ??? ???? ???? ????? ?? ??????? ????? ?????? ?? Ranking ???? ???? ??????? ?? ????? ??? ???? ???????? ?????? ? ?? ??? ???? ???? ?? ??? ?? ????? ?? ??? ??? ??? ???? ?? ???? ??? ???? ??? ?? ????? ??? ?????? ?? ???? ?????
+    </p>
+    <label for="consentCheckbox" class="consent-box block mt-4 text-sm text-gray-700">
+  <input type="checkbox" id="consentCheckbox" class="mr-2" />
+  ????? ??????? ??? ??? ??? ?? ???? ????
+</label>
+    <br>
+    <button onclick="acceptConsent()" class="mt-2 bg-purple-600 text-white px-4 py-2 rounded-full">?    ????? ???? ????</button>
+  </div>
+</div>
+
+<div id="continueModal49" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-2xl p-6 w-80 text-center shadow-xl">
+    <h2 class="text-xl font-semibold mb-2 text-purple-700"><img width="30" src="https://www.svgrepo.com/show/438621/history-round.svg" style="position:absolute; margin-top:-10px; margin-left:-10px; vertical-align: middle;" /> ????? ?????? ????</h2>
+    <p class="text-gray-600 mb-4">???? ???? ?? ?? ????? ?? attempt ???? ?? ???? ???? ?? ???? ??? ??? ??? ?? ??? ???? ?? ???? ?? ?? ????? ?? ???? ?? ???? ???? ????????</p>
+    <div class="flex justify-between">
+      <button onclick="resumeQuiz()" class="bg-green-600 text-white px-4 py-2 rounded-full">??   ??, ???</button>
+      <button onclick="startFresh()" class="bg-red-300 text-black-800 px-4 py-2 rounded-full">?   ????</button>
+    </div>
+  </div>
+</div>
+<!-- Quiz Page -->
+<div id="quizPage49" class="quiz-card w-96 hidden">
+<h2 id="quizTitle" class="text-xl bg-blue-400 px-4 py-1 font-bold text-yellow-50 mb-4 text-center" style="position:reletive; margin-top:0px; left:0; font-size:14px;">??????? ??????? ????? - 09</h2><br>
+  <div class="flex justify-between">
+    <button onclick="prevPage()"></button>
+    <span style="position:absolute; margin-top:-20px; font-size:13px; color:gray; left:38px;"><span id="questionCounter49"></span></span>
+    <span class="bg-green-100 px-4 py-2 rounded-xl" style="position:absolute; margin-top:-25px; font-size:12px; right:38px;">Time Left : <span id="timer49">30s</span></span>
+  </div>
+  <br>
+  <div id="question" class="text-lg font-medium mb-4 bg-purple-100 p-4 rounded-xl w-full shadow-sm"><p id="questionText" class="mb-4"></p></div>
+  <div id="optionsContainer"></div>
+  <br>
+  <button onclick="submitAnswer()" class="flex justify-between mt-5 bg-blue-500 text-yellow-100 px-4 py-2 rounded-full" style="position:absolute; margin-top:0px; font-weight:700; font-size:13px; right:
+  35%;"> </button>
+</div>
+
+<!-- Result Page -->
+<div id="resultPage49" class="card w-full max-w-md mx-1.5 hidden text-center">
+<img width="100%" src="https://m2.getsitecontrol.com/images/273034/c05927489375956da86dcdf1d58f7c9f_323970804.jpeg" style="position:absolute; height:150px; border-radius: 0px 0px 20px 20px; left:0px; top:0px; z-index:-1;" />
+<h2 id="quizTitleResult" class="text-2xl font-bold text-center text-white mb-2">??????? ??????? ????? - 09</h2>
+  <div class="text-2xl mb-4">Your Score<br><span id="finalScore49" class="text-4xl font-bold">0 %</span></div>
+  <div id="userRank49" class="mt-4 text-white text-lg font-semibold text-center"></div><br>
+  <div class="bg-white text-purple-700 p-2 rounded-lg shadow mb-4">
+    <div class="flex justify-between gap-2 mt-0 text-sm">
+      <div>
+      <div class="bg-blue-100 text-blue-800 px-3.5 py-2 rounded-xl shadow-sm">
+        <p class="font-bold" id="completion49"></p>
+        <p class="text-sm">???????</p>
+      </div></div>
+      <div>
+        <div class="bg-gray-100 text-gray-800 px-3.5 py-2 rounded-xl shadow-sm">
+        <p class="font-bold" id="totalQ49"></p>
+        <p class="text-sm">??? ??????</p>
+      </div></div>
+      <div>
+      <div class="bg-green-100 text-green-800 px-3.5 py-2 rounded-xl shadow-sm">
+        <p class="font-bold text-green-600" id="correct49"></p>
+        <p class="text-sm">???</p>
+      </div></div>
+      <div>
+      <div class="bg-red-100 text-red-800 px-3.5 py-2 rounded-xl shadow-sm">
+        <p class="font-bold text-red-600" id="wrong49"></p>
+        <p class="text-sm">???</p>
+      </div></div>
+    </div>
+  </div>
+ 
+  <div id="topLeaderboard49" class="bg-purple-100 text-purple-800 p-4 rounded shadow text-left text-sm max-h-60 overflow-y-auto mb-4"></div> 
+ 
+  <div id="scoreHistory49" class="bg-white text-purple-900 p-4 rounded shadow text-left text-sm max-h-60 overflow-y-auto"></div> <br>
+  <div id="answerReview49" class="bg-purple-150 text-white-900 p-4 rounded text-left text-sm max-h-100 overflow-y-auto mb-4"></div>
+  <button onclick="resetQuiz()" class="mt-2 bg-white text-red-700 px-4 py-3 rounded-full">Restart Quiz</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
