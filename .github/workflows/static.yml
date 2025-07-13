@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Newspaper Torn Card</title>
+  <style>
+  
+
+  
+
+    .newspaper-card h2 {
+      color: #EB5406;
+         padding:10px 15px;
+         background:blue;
+         transform: rotate(-1.5deg);
+         margin-top:-5px;
+         line-height:1.7;
+         border-radius: 5px 5px 0px 0px;
+            font-size:14px;
+            font-family:kadwa;
+      text-transform: uppercase;
+    }
+
+    .newspaper-card p {
+      color: #333;
+       color:#000;
+         line-height:1.8;
+         background:red;
+         border-radius: 0px 0px 5px 5px;
+         font-size:12px;
+         border-top: 2px solid green;
+         overflow: hidden;
+      clip-path: polygon(
+  0% 20%, 35% 17%, 45% 16.5%, 50% 16%, 65% 15%, 50% 17%,
+  80% 9.5%, 100% 6%,
+
+  100% 90%, 98% 92%, 96% 89%, 93% 91%,
+  90% 88%, 86% 90%, 82% 87%, 78% 89%, 74% 86%, 
+  70% 88%, 66% 85%, 60% 87%, 55% 85%, 50% 87%,
+  45% 84%, 40% 86%, 35% 84%, 30% 87%, 25% 85%, 
+  20% 88%, 15% 85%, 10% 90%, 5% 87%, 0% 90%
+);
+
+         min-width:auto;
+        padding: 45px 10px 60px;
+            font-family:kadwa;
+            margin-top:-47px;
+            text-align:left;
+      font-family:kadwa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="newspaper-card">
+      <h2>canvas का background पारदर्शी तो है, लेकिन कुछ browser में resize के साथ height/width mismatch होने पर यह सफेद दिखाई देता है।</h2>
+      <p>
+        भोपाल: मध्यप्रदेश सरकार ने नई युवा नीति लागू करने की घोषणा की है। इस नीति के तहत युवाओं को रोजगार, स्किल ट्रेनिंग और डिजिटल शिक्षा से जोड़ने के लिए कई योजनाएँ चलाई जाएँगी। विशेषज्ञों का मानना है कि यह कदम प्रदेश के विकास में मील का पत्थर साबित होगा।
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
